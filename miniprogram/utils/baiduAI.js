@@ -3,7 +3,7 @@
 const API_CONFIG = {
     // 阿里云DashScope API配置
     // 在实际应用中，应该将API Key存储在服务器端
-    API_KEY: 'sk-b1f1caee12d4467d964c15a473b94b64', // 请替换为你的实际API Key
+    API_KEY: 'DashScope API Key', // 请替换为你的实际API Key
     // DashScope API地址
     API_URL: 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions'
 };
