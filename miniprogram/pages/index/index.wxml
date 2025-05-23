@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<navigation-bar title="食物浪费识别" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <!-- 欢迎信息 -->
+    <view class="welcome-section">
+      <text class="welcome-title">欢迎使用食物浪费识别</text>
+      <text class="welcome-desc">拍摄或上传食物图片，AI将帮您分析浪费情况</text>
+    </view>
+    
+    <!-- 图片上传区域 -->
+    <view class="upload-section">
+      <view class="upload-buttons" wx:if="{{!tempImagePath}}">
+        <button class="upload-btn camera" bindtap="takePhoto">
+          <text class="icon">📷</text>
+          <text>拍照</text>
+        </button>
+        <button class="upload-btn album" bindtap="chooseFromAlbum">
+          <text class="icon">🖼️</text>
+          <text>从相册选择</text>
+        </button>
+      </view>
+      
+      <!-- 图片预览区域 -->
+      <view class="preview-section" wx:if="{{tempImagePath}}">
+        <image class="preview-image" src="{{tempImagePath}}" mode="aspectFit"></image>
+        <view class="preview-actions">
+          <button class="action-btn" bindtap="reselect">重新选择</button>
+          <button class="action-btn primary" bindtap="analyzeImage">开始分析</button>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 加载动画 -->
+    <view class="loading-container" wx:if="{{isAnalyzing}}">
+      <view class="loading-spinner"></view>
+      <text class="loading-text">AI正在分析图片中...</text>
+    </view>
+    
+    <!-- 分析结果区域 -->
+    <view class="result-section" wx:if="{{analysisResult}}">
+      <view class="result-header">
+        <text class="result-title">食物浪费分析报告</text>
+      </view>
+      
+      <!-- 识别结果列表 -->
+      <view class="result-list" wx:if="{{analysisResult.items && analysisResult.items.length}}">
+        <view class="result-item" wx:for="{{analysisResult.items}}" wx:key="name">
+          <text class="item-name">{{item.name || '未知食物'}}</text>
+          <text class="item-percentage">{{item.percentage !== undefined && item.percentage !== null ? item.percentage : 0}}%</text>
+        </view>
+      </view>
+      <view class="empty-tip" wx:else>
+        <text>未识别到有效食物数据</text>
+      </view>
+      
+      <!-- 图表区域 -->
+      <view class="chart-container">
+        <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
+      </view>
+      
+      <!-- 分析文本 -->
+      <view class="analysis-text">
+        <text class="analysis-title">浪费程度评估</text>
+        <text class="analysis-content">{{analysisResult.wasteLevel}}</text>
+        
+        <text class="analysis-title">改善建议</text>
+        <text class="analysis-content">{{analysisResult.suggestions}}</text>
+      </view>
+      
+      <!-- 重新分析按钮 -->
+      <button class="restart-btn" bindtap="restart">重新分析</button>
+    </view>
+  </view>
+</scroll-view>
