@@ -51,14 +51,8 @@
         </view>
       </view>
       <view class="empty-tip" wx:else>
-        <text>未识别到有效食物数据</text>
+        <text>未识别到有效食物数据未识别到有效食物数据未识别到有效食物数据未识别到有效食物数据</text>
       </view>
-      
-      <!-- 图表区域 -->
-      <view class="chart-container">
-        <ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ ec }}"></ec-canvas>
-      </view>
-      
       <!-- 分析文本 -->
       <view class="analysis-text">
         <text class="analysis-title">浪费程度评估</text>
