@@ -9,11 +9,6 @@ Component({
   data: {
     tempImagePath: '', // 临时图片路径
     isAnalyzing: false, // 是否正在分析
-    analysisResult: null, // 分析结果
-    chartWidth: 300, // 默认图表宽度
-    ec: {
-      lazyLoad: true // 延迟加载
-    }
   },
 
   lifetimes: {
@@ -107,8 +102,7 @@ Component({
         })
 
         this.setData({
-          article: parsedContent, // towxml需要使用article作为数据字段名
-          rawAnalysisResult: markdownContent, // 保存原始内容以备需要
+          analysisResult: parsedContent, // towxml需要使用article作为数据字段名
           isAnalyzing: false
         })
 
@@ -127,7 +121,6 @@ Component({
       this.setData({
         tempImagePath: '',
         article: null,
-        rawAnalysisResult: null,
         isAnalyzing: false
       })
     }

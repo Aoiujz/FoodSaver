@@ -38,14 +38,14 @@
     </view>
 
     <!-- 分析结果区域 -->
-    <view class="result-section" wx:if="{{article}}">
+    <view class="result-section" wx:if="{{analysisResult}}">
       <view class="result-header">
         <text class="result-title">食物浪费分析报告</text>
       </view>
 
       <!-- towxml渲染区域 -->
       <view class="towxml-content">
-        <towxml nodes="{{article}}"/>
+        <towxml nodes="{{analysisResult}}"/>
       </view>
 
       <!-- 重新分析按钮 -->
