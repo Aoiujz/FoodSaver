@@ -120,7 +120,7 @@ Component({
     restart() {
       this.setData({
         tempImagePath: '',
-        article: null,
+        analysisResult: null,
         isAnalyzing: false
       })
     }
