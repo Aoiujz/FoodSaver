@@ -1,5 +1,6 @@
 // index.ts
 const { imageAIService } = require('../../utils/baiduAI')
+import towxmlUtil from '../../utils/towxml-util';
 
 // 获取应用实例
 const app = getApp<IAppOption>()
@@ -39,7 +40,7 @@ Component({
           sourceType: ['camera'],
           sizeType: ['compressed']
         })
-        
+
         this.setData({
           tempImagePath: res.tempFiles[0].tempFilePath
         })
@@ -60,7 +61,7 @@ Component({
           sourceType: ['album'],
           sizeType: ['compressed']
         })
-        
+
         this.setData({
           tempImagePath: res.tempFiles[0].tempFilePath
         })
@@ -95,11 +96,19 @@ Component({
       try {
         // 调用百度AI服务分析图片
         const result = await imageAIService.analyzeImage(this.data.tempImagePath)
-        
-        console.log(result)
-        
+
+        // 获取Markdown格式的内容
+        const markdownContent = result.choices[0].message.content
+
+        // 使用towxml解析Markdown内容
+        const parsedContent = towxmlUtil.parseMd(markdownContent, {
+          theme: 'light',
+          highlight: true
+        })
+
         this.setData({
-          analysisResult: result,
+          article: parsedContent, // towxml需要使用article作为数据字段名
+          rawAnalysisResult: markdownContent, // 保存原始内容以备需要
           isAnalyzing: false
         })
 
@@ -117,7 +126,8 @@ Component({
     restart() {
       this.setData({
         tempImagePath: '',
-        analysisResult: null,
+        article: null,
+        rawAnalysisResult: null,
         isAnalyzing: false
       })
     }

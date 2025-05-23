@@ -20,7 +20,6 @@
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
-    "ec-canvas": "/ec-canvas/ec-canvas"
   },
   "permission": {
     "scope.camera": {

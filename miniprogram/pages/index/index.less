@@ -118,7 +118,7 @@ page {
   box-shadow: none;
   padding: 0;
   margin: 0;
-  
+
   &::after {
     display: none;
   }
@@ -245,8 +245,56 @@ ec-canvas {
   color: #fff;
   margin-top: 20rpx;
   padding: 0;
-  
+
   &::after {
     display: none;
   }
+}
+
+/* Towxml 内容样式 */
+.towxml-content {
+  margin: 20rpx 0 30rpx;
+  padding: 10rpx;
+  font-size: 28rpx;
+}
+
+/* 自定义Towxml样式覆盖 */
+.towxml-content .h1 {
+  font-size: 36rpx !important;
+  margin-bottom: 20rpx !important;
+  padding-bottom: 10rpx !important;
+  border-bottom: 1rpx solid #eee !important;
+}
+
+.towxml-content .h2 {
+  font-size: 32rpx !important;
+  margin: 18rpx 0 12rpx !important;
+}
+
+.towxml-content .h3 {
+  font-size: 30rpx !important;
+  margin: 15rpx 0 10rpx !important;
+}
+
+.towxml-content .__p {
+  margin: 16rpx 0 !important;
+  line-height: 1.6 !important;
+  text-align: justify !important;
+}
+
+.towxml-content .ul,
+.towxml-content .ol {
+  margin: 16rpx 0 !important;
+  padding-left: 30rpx !important;
+}
+
+.towxml-content .li {
+  margin: 8rpx 0 !important;
+}
+
+.towxml-content .blockquote {
+  padding: 10rpx 20rpx !important;
+  border-left: 6rpx solid #ddd !important;
+  background-color: #f9f9f9 !important;
+  margin: 16rpx 0 !important;
 }
