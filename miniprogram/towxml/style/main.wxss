@@ -2,7 +2,7 @@
 .h2w {
     font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
     font-weight:300;
-    font-size: 32rpx;
+    font-size: 28rpx;
     line-height: 1.8;
     word-wrap: break-word;
     word-break: normal;
@@ -10,8 +10,7 @@
 }
 
 .h2w__main {
-    margin: 0 40rpx 40rpx 40rpx;
-    padding-top: 40rpx;
+    margin: 0 16rpx 16rpx 16rpx;
 }
 
 /**标题**/
@@ -43,7 +42,7 @@
 .h2w__h1 {
     border-bottom-style: double;
     border-bottom-width: 6rpx;
-    font-size: 42rpx;
+    font-size: 36rpx;
     padding-bottom: 10rpx;
     margin-bottom: 20rpx;
 }
@@ -51,25 +50,25 @@
 .h2w__h2 {
     border-bottom-style: solid;
     border-bottom-width: 1rpx;
-    font-size: 40rpx;
+    font-size: 34rpx;
     padding-bottom: 8rpx;
     margin-bottom: 18rpx;
 }
 
 .h2w__h3 {
-    font-size: 38rpx;
+    font-size: 32rpx;
     padding-bottom: 6rpx;
     margin-bottom: 12rpx;
 }
 
 .h2w__h4 {
-    font-size: 36rpx;
+    font-size: 30rpx;
     padding-bottom: 4rpx;
     margin-bottom: 12rpx;
 }
 
 .h2w__h5 {
-    font-size: 34rpx;
+    font-size: 28rpx;
     padding-bottom: 2rpx;
     margin-bottom: 12rpx;
 }
@@ -367,7 +366,7 @@ video {
 }
 
 .h2w__latex--line {margin:4rpx 8rpx; vertical-align:middle;}
-.h2w__latex--block {display:block; margin:1em auto;} 
+.h2w__latex--block {display:block; margin:1em auto;}
 
 .h2w__yuml {display:block;}
 
